@@ -101,6 +101,7 @@ function onStart() {
 
     trace('## start success = create RTCPeerConnection and set callback ');
 }
+var isDesktop =false;
 function onToggleDesktop(){
 
     if (isDesktop == false) {
