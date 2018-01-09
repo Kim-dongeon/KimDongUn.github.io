@@ -99,7 +99,29 @@ function onStart() {
 
     trace('## start success = create RTCPeerConnection and set callback ');
 }
+function startDesktop() {
+    if (window.stream) {
+        window.stream.getTracks().forEach(function(track) {
+          track.stop();
+        });
+    }
 
+    getScreenId((error, sourceId, screenConstraints) => {
+    if (error === 'not-installed') return alert('The extension is not installed');
+    if (error === 'permission-denied') return alert('Permission is denied.');
+    if (error === 'not-chrome') return alert('Please use chrome.');
+
+    navigator.mediaDevices.getUserMedia(screenConstraints)
+        .then(stream => {
+            window.stream = stream;
+            vid1.srcObject = stream;
+            localstream = stream;
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    });
+}
 function onOffer() {
     var offerOptions = {
         offerToReceiveAudio: 1,
