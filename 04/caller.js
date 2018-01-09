@@ -17,16 +17,18 @@ var btn_finalOffer = document.querySelector('#btn_finalOffer');
 var btn_receiveAnswer = document.querySelector('#btn_receiveAnswer');
 var btn_desktop = document.querySelector('#btn_desktop');
 
-btn_desktop.addEventListener('click', onToggleDesktop);
-btn_start.addEventListener('click', onStart);
-btn_finalOffer.addEventListener('click', onOffer);
-btn_receiveAnswer.addEventListener('click', onReceiveAnswer);
+
 
 var snapshotButton = document.querySelector('button#snapshot');
 var toggleMirrorButton = document.querySelector('button#toggle-mirror');
 var filterSelect = document.querySelector('select#filter');
 
 var canvas = window.canvas = document.querySelector('canvas');
+
+btn_desktop.addEventListener('click', onToggleDesktop);
+btn_start.addEventListener('click', onStart);
+btn_finalOffer.addEventListener('click', onOffer);
+btn_receiveAnswer.addEventListener('click', onReceiveAnswer);
 canvas.width = 480;
 canvas.height = 360;
 
